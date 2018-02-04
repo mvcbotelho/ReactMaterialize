@@ -1,0 +1,24 @@
+{
+  "name": "introreact",
+  "version": "1.0.0",
+  "description": "Introdução ao React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "introdução",
+    "estudo"
+  ],
+  "author": "Marcus Botelho <marcus.itec@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-react-easy": "^0.1.9",
+    "gulp-rename": "^1.2.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
