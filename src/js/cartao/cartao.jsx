@@ -8,7 +8,7 @@ class Cartao extends React.Component {
                     <img className="activator" src="http://materializecss.com/images/office.jpg"/>
                 </div>
                 <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4">Título do Cartão
+                    <span className="card-title activator grey-text text-darken-4">Título
                         <i className="material-icons right">more_vert</i></span>
                 </div>
                 <div className="card-action">
