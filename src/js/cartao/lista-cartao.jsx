@@ -1,12 +1,15 @@
 import React from 'react';
 import Cartao from "./cartao";
+import Busca from '../busca/busca';
 
 class ListaCartao extends React.Component {
     constructor(props){
         super(props);
 
-        this.state = { cliques: 0 };
+        this.state = { cliques: 0, busca: '', dados: '' };
         this.addClick = this.addClick.bind(this);
+        this.atualizaBusca = this.atualizaBusca.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     addClick(){
@@ -15,20 +18,35 @@ class ListaCartao extends React.Component {
             cliques: prevState.cliques + 1
         }));
     }
+
+    atualizaBusca(evento){
+        this.setState({ busca: evento.target.value });
+    }
+
+    onSubmit(evento){
+        evento.preventDefault();
+    }
+
+    componentDidMount(){
+        this.setState({
+         dados: [
+        { titulo: 'Titulo 1', descricao: 'Descrição do cartão 01', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 2', descricao: 'Descrição do cartão 02', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 3', descricao: 'Descrição do cartão 03', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 4', descricao: 'Descrição do cartão 04', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 5', descricao: 'Descrição do cartão 05', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 6', descricao: 'Descrição do cartão 06', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 7', descricao: 'Descrição do cartão 07', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 8', descricao: 'Descrição do cartão 08', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 9', descricao: 'Descrição do cartão 09', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
+        { titulo: 'Titulo 10', descricao: 'Descrição do cartão 10', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' }
+    ]
+        });
+    }
+
     render(){
 
-        let noticias = [
-            { titulo: 'Titulo 1', descricao: 'Descrição do cartão 01', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 2', descricao: 'Descrição do cartão 02', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 3', descricao: 'Descrição do cartão 03', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 4', descricao: 'Descrição do cartão 04', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 5', descricao: 'Descrição do cartão 05', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 6', descricao: 'Descrição do cartão 06', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 7', descricao: 'Descrição do cartão 07', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 8', descricao: 'Descrição do cartão 08', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 9', descricao: 'Descrição do cartão 09', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' },
-            { titulo: 'Titulo 10', descricao: 'Descrição do cartão 10', detalhes: 'Detalhes', imagem: 'http://materializecss.com/images/office.jpg', link: '#' }
-        ];
+        let noticias = this.state.dados;
 
         let aux = [];
         let novaLista = [];
@@ -60,11 +78,15 @@ class ListaCartao extends React.Component {
                 </div>
             );
         });
-        console.log(novaLista);
         return (
             <div>
-                <p>Quantidade de cliques: { this.state.cliques }</p>
-                {linha}
+                <div className="row">
+                    <Busca atualizaBusca={this.atualizaBusca} busca={this.state.busca} onSubmit={this.onSubmit}/>
+                </div>
+                <div>
+                    <p>Quantidade de cliques: {this.state.cliques}</p>
+                    {linha}
+                </div>
             </div>
 
         );
