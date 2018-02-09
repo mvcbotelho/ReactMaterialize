@@ -21,7 +21,6 @@ class Busca extends React.Component{
             <form onSubmit={this.onSubmit}>
                 <div className="input-fild col m6">
                     <input placeholder="Buscar..." onChange={this.atualizaBusca} type="text" value={this.props.busca}/>
-                    <button>Buscar</button>
                 </div>
             </form>
         );

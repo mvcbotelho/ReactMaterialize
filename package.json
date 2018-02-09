@@ -2,7 +2,7 @@
   "name": "introreact",
   "version": "1.0.0",
   "description": "Introdução ao React",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,8 @@
     "gulp-rename": "^1.2.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   }
 }
